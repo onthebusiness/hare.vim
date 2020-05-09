@@ -1,9 +1,6 @@
 " Vim syntax file
 " Language: Hare
 
-" TODO:
-" Highlight ... in [x, y, z...]
-
 if exists("b:current_syntax")
   finish
 endif
@@ -15,8 +12,7 @@ syn keyword hareBuiltin len offset free alloc assert
 " TODO: highlight size correctly both as keyword and type
 syn match harePreProc "^use .*;"
 syn match harePreProc "@[a-z]*"
-" TODO: This doesn't seem to work:
-syn match hareOperator "\.\." "\.\.\."
+syn match hareOperator "\.\.\." "\.\."
 
 syn region hareString start=+\z(["']\)+ end=+\z1+ skip=+\\\\\|\\\z1+
 
@@ -34,7 +30,7 @@ syn match	hareOctal		display contained "0\o\+\(u\=l\{0,2}\|ll\=u\)\>" contains=h
 syn match	hareOctalZero	display contained "\<0"
 syn match	hareFloat		display contained "\d\+f"
 "floating point number, with dot, optional exponent
-syn match	hareFloat		display contained "\d\+\.\d*\(e[-+]\=\d\+\)\=[fl]\="
+syn match	hareFloat		display contained "\d\+\.\d+\(e[-+]\=\d\+\)\=[fl]\="
 "floating point number, starting with a dot, optional exponent
 syn match	hareFloat		display contained "\.\d\+\(e[-+]\=\d\+\)\=[fl]\=\>"
 "floating point number, without dot, with exponent
