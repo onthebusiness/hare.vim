@@ -15,3 +15,7 @@ setlocal tabstop=8
 setlocal shiftwidth=0
 setlocal softtabstop=0
 setlocal textwidth=80
+
+" Set 'formatoptions' to break comment lines but not other lines,
+" and insert the comment leader when hitting <CR> or using "o".
+setlocal fo-=t fo+=croql
