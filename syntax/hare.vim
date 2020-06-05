@@ -60,12 +60,10 @@ hi def link hareKeyword Keyword
 hi def link hareNumber Number
 hi def link hareNull Constant
 hi def link hareOctal Number
-hi def link hareOperator Keyword
+hi def link hareOperator Operator
 hi def link harePreProc PreProc
 hi def link hareRepeat Repeat
 hi def link hareString String
 hi def link hareTodo Todo
 hi def link hareType Type
-hi def link hareBuiltin Keyword
-
-hi hareKeyword ctermbg=NONE ctermfg=darkcyan
+hi def link hareBuiltin Function
