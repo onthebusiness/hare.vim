@@ -5,7 +5,7 @@ if exists("b:current_syntax")
   finish
 endif
 
-syn keyword hareKeyword let const fn def return static export
+syn keyword hareKeyword let const fn def return static export continue break
 syn keyword hareRepeat for while
 syn keyword hareConditional if else match switch
 syn keyword hareBuiltin len offset free alloc assert
