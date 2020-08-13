@@ -5,7 +5,7 @@ if exists("b:current_syntax")
   finish
 endif
 
-syn keyword hareKeyword let const fn def static export bit
+syn keyword hareKeyword let const fn def static export defer
 syn keyword hareBranch for while return break continue
 syn keyword hareConditional if else match switch
 syn keyword hareBuiltin len offset free alloc assert
@@ -38,7 +38,7 @@ syn match	hareFloat		display contained "\.\d\+\(e[-+]\=\d\+\)\=\(f32\|f64\)\=\>"
 syn match	hareFloat		display contained "\d\+e[-+]\=\d\+\(f32\|f64\)\=\>"
 
 syn keyword hareTodo contained TODO FIXME XXX
-syn region hareComment start="/\*" end="\*/" contains=hareTodo extend
+syn region hareComment start="//" end="$" contains=hareTodo,@Spell
 
 syn keyword hareType u8 u16 u32 u64 i8 i16 i32 i64
 syn keyword hareType uint int
