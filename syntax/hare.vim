@@ -8,7 +8,7 @@ endif
 syn keyword hareKeyword let const fn def type static export defer
 syn keyword hareBranch for while return break continue
 syn keyword hareConditional if else match switch
-syn keyword hareBuiltin len offset free alloc assert append
+syn keyword hareBuiltin len offset free alloc assert append abort
 syn keyword hareOperator is as
 " TODO: highlight size correctly both as keyword and type
 syn match harePreProc "^use .*;"
