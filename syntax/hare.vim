@@ -51,6 +51,7 @@ syn keyword hareType void
 syn keyword hareType struct union
 syn keyword hareType enum
 syn keyword hareType nullable
+syn keyword hareType rune
 syn keyword hareNull null
 syn keyword hareBoolean true false
 
