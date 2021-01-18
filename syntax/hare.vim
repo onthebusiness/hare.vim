@@ -20,22 +20,15 @@ syn region hareString start=+\z(["']\)+ end=+\z1+ skip=+\\\\\|\\\z1+
 "adapted from c.vim
 "integer number, or floating point number without a dot and with "f".
 syn case ignore
-syn match	hareNumbers	display transparent "\<\d" contains=hareNumber,hareOctalError,hareOctal
-" Same, but without octal error (for comments)
-syn match	hareNumbersCom	display contained transparent "\<\d\|\.\d" contains=hareNumber,hareFloat,hareOctal
-syn match	hareNumber		display contained "\d\+\([ziu]\d*\)\?\>"
+syn match	hareNumbers	display transparent "\<\d" contains=hareNumber,hareOctal,hareFloat
+syn match	hareNumber		display contained "\d\+\(e[-+]\?\d\+\)\?\([ziu]\d*\)\?"
 "hex number
-syn match	hareNumber		display contained "0x\x\+\([ziu]\d*\)\?\>"
-" Flag the first zero of an octal number as something special
-syn match	hareOctal		display contained "0\o\+\([ziu]\d*\)\?\>" contains=hareOctalZero
-syn match	hareOctalZero	display contained "\<0"
-syn match	hareFloat		display contained "\d\+\(f32\|f64\)"
+syn match	hareNumber		display contained "0x\x\+\([ziu]\d*\)\?"
+"octal number
+syn match	hareOctal		display contained "0o\o\+\([ziu]\d*\)\?"
+syn match	hareFloat		display contained "\d\+\(e[-+]\?\d\+\)\?\(f32\|f64\)"
 "floating point number, with dot, optional exponent
-syn match	hareFloat		display contained "\d\+\.\d+\(e[-+]\=\d\+\)\=\(f32\|f64\)\="
-"floating point number, starting with a dot, optional exponent
-syn match	hareFloat		display contained "\.\d\+\(e[-+]\=\d\+\)\=\(f32\|f64\)\=\>"
-"floating point number, without dot, with exponent
-syn match	hareFloat		display contained "\d\+e[-+]\=\d\+\(f32\|f64\)\=\>"
+syn match	hareFloat		display contained "\d\+\.\d\+\(e[-+]\?\d\+\)\?\(f32\|f64\)\?"
 
 syn keyword hareTodo contained TODO FIXME XXX
 syn region hareComment start="//" end="$" contains=hareTodo,@Spell
