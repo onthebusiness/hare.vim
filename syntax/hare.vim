@@ -5,6 +5,7 @@ if exists("b:current_syntax")
   finish
 endif
 
+syn case match
 syn keyword hareKeyword let const fn def type static export defer
 syn keyword hareBranch for return break continue
 syn keyword hareConditional if else match switch
@@ -19,7 +20,6 @@ syn region hareString start=+\z(["']\)+ end=+\z1+ skip=+\\\\\|\\\z1+
 
 "adapted from c.vim
 "integer number, or floating point number without a dot and with "f".
-syn case ignore
 syn match	hareNumbers	display transparent "\<\d" contains=hareNumber,hareOctal,hareFloat
 syn match	hareNumber		display contained "\d\+\(e[-+]\?\d\+\)\?\([ziu]\d*\)\?"
 "hex number
