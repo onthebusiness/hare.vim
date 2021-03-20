@@ -20,12 +20,14 @@ syn region hareString start=+\z(["']\)+ end=+\z1+ skip=+\\\\\|\\\z1+
 
 "adapted from c.vim
 "integer number, or floating point number without a dot and with "f".
-syn match	hareNumbers	display transparent "\<\d" contains=hareNumber,hareOctal,hareFloat
+syn match	hareNumbers		display transparent "\<\d" contains=hareNumber,hareOctal,hareBinary,hareFloat
 syn match	hareNumber		display contained "\d\+\(e[-+]\?\d\+\)\?\([ziu]\d*\)\?"
 "hex number
 syn match	hareNumber		display contained "0x\x\+\([ziu]\d*\)\?"
 "octal number
 syn match	hareOctal		display contained "0o\o\+\([ziu]\d*\)\?"
+"binary number
+syn match	hareBinary		display contained '0b[01]\+\([ziu]\d*\)\?'
 syn match	hareFloat		display contained "\d\+\(e[-+]\?\d\+\)\?\(f32\|f64\)"
 "floating point number, with dot, optional exponent
 syn match	hareFloat		display contained "\d\+\.\d\+\(e[-+]\?\d\+\)\?\(f32\|f64\)\?"
@@ -48,6 +50,7 @@ syn keyword hareType rune
 syn keyword hareNull null
 syn keyword hareBoolean true false
 
+hi def link hareBinary Number
 hi def link hareBoolean Boolean
 hi def link hareComment Comment
 hi def link hareConditional Conditional
@@ -63,3 +66,4 @@ hi def link hareString String
 hi def link hareTodo Todo
 hi def link hareType Type
 hi def link hareBuiltin Function
+" vim: tabstop=8
