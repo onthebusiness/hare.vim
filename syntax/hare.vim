@@ -7,7 +7,7 @@ endif
 
 syn case match
 syn keyword hareKeyword let const fn def type static export defer
-syn keyword hareBranch for return break continue
+syn keyword hareBranch for return break continue yield
 syn keyword hareConditional if else match switch
 syn keyword hareBuiltin len offset free alloc assert append abort delete insert
 syn keyword hareOperator is as
