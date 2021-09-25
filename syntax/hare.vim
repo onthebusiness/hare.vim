@@ -9,6 +9,7 @@ syn case match
 syn keyword hareKeyword let const fn def type static export defer
 syn keyword hareBranch for return break continue yield
 syn keyword hareConditional if else match switch
+syn keyword hareLabel case
 syn keyword hareBuiltin len offset free alloc assert append abort delete insert
 syn keyword hareOperator is as
 " TODO: highlight size correctly both as keyword and type
@@ -52,18 +53,19 @@ syn keyword hareBoolean true false
 
 hi def link hareBinary Number
 hi def link hareBoolean Boolean
+hi def link hareBranch Repeat
+hi def link hareBuiltin Function
 hi def link hareComment Comment
 hi def link hareConditional Conditional
 hi def link hareFloat Number
 hi def link hareKeyword Keyword
-hi def link hareNumber Number
+hi def link hareLabel Label
 hi def link hareNull Constant
+hi def link hareNumber Number
 hi def link hareOctal Number
 hi def link hareOperator Operator
 hi def link harePreProc PreProc
-hi def link hareBranch Repeat
 hi def link hareString String
 hi def link hareTodo Todo
 hi def link hareType Type
-hi def link hareBuiltin Function
 " vim: tabstop=8
