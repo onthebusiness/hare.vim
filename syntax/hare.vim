@@ -33,6 +33,9 @@ syn match	hareFloat		display contained "\d\+\(e[-+]\?\d\+\)\?\(f32\|f64\)"
 "floating point number, with dot, optional exponent
 syn match	hareFloat		display contained "\d\+\.\d\+\(e[-+]\?\d\+\)\?\(f32\|f64\)\?"
 
+syn match	hareSpaceError		display excludenl "\s\+$"
+syn match	hareSpaceError		display " \+\t"me=e-1
+
 syn keyword hareTodo contained TODO FIXME XXX
 syn region hareComment start="//" end="$" contains=hareTodo,@Spell
 
@@ -68,4 +71,5 @@ hi def link harePreProc PreProc
 hi def link hareString String
 hi def link hareTodo Todo
 hi def link hareType Type
+hi def link hareSpaceError Error
 " vim: tabstop=8
