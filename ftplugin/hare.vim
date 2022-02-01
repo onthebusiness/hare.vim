@@ -16,6 +16,8 @@ setlocal shiftwidth=0
 setlocal softtabstop=0
 setlocal textwidth=80
 setlocal commentstring=//\ %s
+setlocal keywordprg=haredoc\ -a
+setlocal iskeyword=@,48-57,:,_,192-255
 
 " Set 'formatoptions' to break comment lines but not other lines,
 " and insert the comment leader when hitting <CR> or using "o".
