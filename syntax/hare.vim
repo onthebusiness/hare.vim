@@ -18,6 +18,7 @@ syn match harePreProc "@[a-z]*"
 syn match hareOperator "\.\.\." "\.\."
 
 syn region hareString start=+\z(["']\)+ end=+\z1+ skip=+\\\\\|\\\z1+
+syn region hareString start=+`+ end=+`+
 
 "adapted from c.vim
 "integer number, or floating point number without a dot and with "f".
