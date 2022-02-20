@@ -4,7 +4,7 @@
 
 " Only do this when not done yet for this buffer
 if exists('b:did_ftplugin')
-    finish
+  finish
 endif
 
 " Don't load another plugin for this buffer
@@ -22,3 +22,4 @@ setlocal commentstring=//\ %s
 setlocal fo-=t fo+=croql
 
 compiler hare
+" vim: tabstop=2 shiftwidth=2 expandtab

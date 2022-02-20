@@ -73,4 +73,4 @@ hi def link hareString String
 hi def link hareTodo Todo
 hi def link hareType Type
 hi def link hareSpaceError Error
-" vim: tabstop=8
+" vim: tabstop=8 shiftwidth=2 expandtab

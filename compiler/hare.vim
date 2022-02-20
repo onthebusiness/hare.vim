@@ -26,3 +26,4 @@ CompilerSet errorformat=
 
 let &cpo = s:cpo_save
 unlet s:cpo_save
+" vim: tabstop=2 shiftwidth=2 expandtab
