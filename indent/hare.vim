@@ -67,7 +67,7 @@ function! GetHareIndent()
   if line =~# '\v^\s*case'
     " If the previous line was also a case, don't do any special indenting.
     if prevline =~# '\v^\s*case'
-      return indent(v:lnum)
+      return indent(prevlnum)
     end
 
     " If the previous line started a block, deindent by one shiftwidth.
@@ -98,7 +98,7 @@ function! GetHareIndent()
   " If the previous line ended in a semicolon and the line before that was a
   " case, don't do any special indenting.
   if prevline =~# '\v;\s*(//.*)?$' && prevprevline =~# '\v\=\>\s*(//.*)?$'
-    return indent(v:lnum)
+    return indent(prevlnum)
   endif
 
   " If everything above is false, do a normal cindent.
