@@ -82,8 +82,16 @@ function! GetHareIndent()
       return FloorCindent(v:lnum) - shiftwidth()
     end
 
+    let l:indent = FloorCindent(v:lnum)
+
+    " If a normal cindent would indent the same amount as the previous line,
+    " deindent by one shiftwidth. This fixes some issues with `case let` blocks.
+    if l:indent == indent(prevlnum)
+      return l:indent - shiftwidth()
+    endif
+
     " Otherwise, do a normal cindent.
-    return FloorCindent(v:lnum)
+    return l:indent
   endif
 
   " Indent the body of a case.
