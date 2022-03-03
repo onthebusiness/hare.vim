@@ -52,6 +52,17 @@ function! GetHareIndent()
   " This is all very hacky and imperfect, but it's tough to do much better when
   " working with regex-based indenting rules.
 
+  " If the previous line ended with =, indent by one shiftwidth.
+  if prevline =~# '\v\=\s*(//.*)?$'
+    return indent(prevlnum) + shiftwidth()
+  endif
+
+  " If the previous line ended in a semicolon and the line before that ended
+  " with =, deindent by one shiftwidth.
+  if prevline =~# '\v;\s*(//.*)?$' && prevprevline =~# '\v\=\s*(//.*)?$'
+    return indent(prevlnum) - shiftwidth()
+  endif
+
   " TODO: The following edge-case is still indented incorrectly:
   " case =>
   "         if (foo) {
