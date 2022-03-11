@@ -24,13 +24,13 @@ syn region hareString start=+`+ end=+`+
 "adapted from c.vim
 "integer number, or floating point number without a dot and with "f".
 syn match	hareNumbers		display transparent "\v<\d" contains=hareNumber,hareOctal,hareBinary,hareFloat
-syn match	hareNumber		display contained "\v\d+(e[-+]?\d+)?([ziu]\d*)?"
+syn match	hareNumber		display contained "\v\d+(e[-+]?\d+)?(z|[iu](8|16|32|64)?)?"
 "hex number
-syn match	hareNumber		display contained "\v0x\x+([ziu]\d*)?"
+syn match	hareNumber		display contained "\v0x\x+(z|[iu](8|16|32|64)?)?"
 "octal number
-syn match	hareOctal		display contained "\v0o\o+([ziu]\d*)?"
+syn match	hareOctal		display contained "\v0o\o+(z|[iu](8|16|32|64)?)?"
 "binary number
-syn match	hareBinary		display contained '\v0b[01]+([ziu]\d*)?'
+syn match	hareBinary		display contained '\v0b[01]+(z|[iu](8|16|32|64)?)?'
 syn match	hareFloat		display contained "\v\d+(e[-+]?\d+)?(f32|f64)"
 "floating point number, with dot, optional exponent
 syn match	hareFloat		display contained "\v\d+\.\d+(e[-+]?\d+)?(f32|f64)?"
