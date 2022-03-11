@@ -6,7 +6,7 @@ if exists("b:current_syntax")
 endif
 
 syn case match
-syn keyword hareKeyword let const fn def type static export defer
+syn keyword hareKeyword let const fn def type static export defer _
 syn keyword hareBranch for return break continue yield
 syn keyword hareConditional if else match switch
 syn keyword hareLabel case
