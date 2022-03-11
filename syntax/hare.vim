@@ -12,7 +12,8 @@ syn keyword hareConditional if else match switch
 syn keyword hareLabel case
 syn keyword hareBuiltin len offset free alloc assert append abort delete insert
 syn keyword hareOperator is as
-" TODO: highlight size correctly both as keyword and type
+syn match hareType "\vsize((\_\s|//.*)*\()@!"
+syn match hareBuiltin "\vsize((\_\s|//.*)*\()@="
 syn match harePreProc "^use .*;"
 syn match harePreProc "@[a-z]*"
 syn match hareOperator "\.\.\." "\.\."
@@ -43,7 +44,6 @@ syn region hareComment start="//" end="$" contains=hareTodo,@Spell
 syn keyword hareType u8 u16 u32 u64 i8 i16 i32 i64
 syn keyword hareType uint int
 syn keyword hareType uintptr
-syn keyword hareType size
 syn keyword hareType f32 f64
 syn keyword hareType bool
 syn keyword hareType char str
