@@ -11,7 +11,7 @@ syn keyword hareBranch for return break continue yield
 syn keyword hareConditional if else match switch
 syn keyword hareLabel case
 syn keyword hareBuiltin len offset free alloc assert append abort delete insert
-syn keyword hareBuiltin vastart vaarg
+syn keyword hareBuiltin vastart vaarg vaend
 syn keyword hareOperator is as
 syn match hareType "\vsize((\_\s|//.*)*\()@!"
 syn match hareBuiltin "\vsize((\_\s|//.*)*\()@="
