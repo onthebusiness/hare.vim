@@ -108,6 +108,7 @@ function! GetHareIndent()
   " If the previous line ended in a semicolon and the line before that was a
   " case, don't do any special indenting.
   if prevline =~# '\v;\s*(//.*)?$' && prevprevline =~# '\v\=\>\s*(//.*)?$'
+        \ && line !~# '\v^\s*}'
     return indent(prevlnum)
   endif
 
