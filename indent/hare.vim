@@ -104,6 +104,11 @@ function! GetHareIndent()
     return l:indent
   endif
 
+  " Don't indent an extra shiftwidth for cases which span multiple lines.
+  if prevline =~# '\v\=\>\s*(//.*)?$' && prevline !~# '\v^\s*case\W'
+    return indent(prevlnum)
+  endif
+
   " Indent the body of a case.
   " If the previous line ended in a semicolon and the line before that was a
   " case, don't do any special indenting.
