@@ -11,7 +11,6 @@ if !has("cindent") || !has("eval")
 endif
 
 setlocal cindent
-setlocal tabstop=8 shiftwidth=8 noexpandtab
 
 " L0 -> don't deindent labels
 " :0 -> don't indent cases
