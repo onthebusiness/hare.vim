@@ -13,6 +13,7 @@ syn keyword hareLabel case
 syn keyword hareBuiltin len offset free alloc assert append abort delete insert
 syn keyword hareBuiltin vastart vaarg vaend
 syn keyword hareOperator is as
+syn match hareErrorAssertion "!"
 syn match hareType "\v<size>((\_\s|//.*)*\()@!"
 syn match hareBuiltin "\v<size>((\_\s|//.*)*\()@="
 syn match harePreProc "^use .*;"
@@ -63,6 +64,7 @@ hi def link hareBranch Repeat
 hi def link hareBuiltin Function
 hi def link hareComment Comment
 hi def link hareConditional Conditional
+hi def link hareError Error
 hi def link hareFloat Number
 hi def link hareKeyword Keyword
 hi def link hareLabel Label
@@ -78,5 +80,7 @@ hi def link hareType Type
 hi def link hareSpaceError Error
 autocmd InsertEnter * hi link hareSpaceError NONE
 autocmd InsertLeave * hi link hareSpaceError Error
+
+highlight hareErrorAssertion ctermfg=red cterm=bold
 
 " vim: tabstop=8 shiftwidth=2 expandtab
