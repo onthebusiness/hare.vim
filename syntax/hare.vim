@@ -18,6 +18,7 @@ syn match hareBuiltin "\v<size>((\_s|//.*\n)*\()@="
 syn match harePreProc "^use .*;"
 syn match harePreProc "@[a-z]*"
 syn match hareOperator "\.\.\." "\.\."
+syn match hareErrorAssertion "\v(^([^/]|//@!)*\)\_s*)@<=!\=@!"
 
 syn region hareString start=+\z(["']\)+ end=+\z1+ skip=+\\\\\|\\\z1+
 syn region hareString start=+`+ end=+`+
@@ -78,5 +79,7 @@ hi def link hareType Type
 hi def link hareSpaceError Error
 autocmd InsertEnter * hi link hareSpaceError NONE
 autocmd InsertLeave * hi link hareSpaceError Error
+
+hi hareErrorAssertion ctermfg=red cterm=bold guifg=red gui=bold
 
 " vim: tabstop=8 shiftwidth=2 expandtab
