@@ -80,6 +80,6 @@ hi def link hareSpaceError Error
 autocmd InsertEnter * hi link hareSpaceError NONE
 autocmd InsertLeave * hi link hareSpaceError Error
 
-hi hareErrorAssertion ctermfg=red cterm=bold guifg=red gui=bold
+hi def hareErrorAssertion ctermfg=red cterm=bold guifg=red gui=bold
 
 " vim: tabstop=8 shiftwidth=2 expandtab
