@@ -19,9 +19,11 @@ syn match harePreProc "^use .*;"
 syn match harePreProc "@[a-z]*"
 syn match hareOperator "\.\.\." "\.\."
 syn match hareErrorAssertion "\v(^([^/]|//@!)*\)\_s*)@<=!\=@!"
+syn match hareEscape "\\[\\\'\"0abfnrtv]" contained
+syn match hareEscapeRaw "\\[\\0abfnrtv]" contained
 
-syn region hareString start=+\z(["']\)+ end=+\z1+ skip=+\\\\\|\\\z1+
-syn region hareString start=+`+ end=+`+
+syn region hareString start=+\z(["']\)+ end=+\z1+ skip=+\\\\\|\\\z1+ contains=hareEscape
+syn region hareString start=+`+ end=+`+ contains=hareEscapeRaw
 
 "adapted from c.vim
 "integer number, or floating point number without a dot and with "f".
@@ -72,6 +74,8 @@ hi def link hareNumber Number
 hi def link hareOctal Number
 hi def link hareOperator Operator
 hi def link harePreProc PreProc
+hi def link hareEscape SpecialChar
+hi def link hareEscapeRaw hareEscape
 hi def link hareString String
 hi def link hareTodo Todo
 hi def link hareType Type
