@@ -88,4 +88,6 @@ autocmd InsertLeave * hi link hareSpaceError Error
 
 hi def hareErrorAssertion ctermfg=red cterm=bold guifg=red gui=bold
 
+let b:current_syntax = "hare"
+
 " vim: tabstop=8 shiftwidth=2 expandtab
