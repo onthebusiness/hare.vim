@@ -6,13 +6,23 @@ if exists("b:current_syntax")
 endif
 
 syn case match
-syn keyword hareKeyword let const fn def type static export defer _
-syn keyword hareBranch for return break continue yield
+
 syn keyword hareConditional if else match switch
+syn keyword hareKeyword break continue return yield
+syn keyword hareKeyword defer
+syn keyword hareKeyword fn
+syn keyword hareKeyword let
 syn keyword hareLabel case
+syn keyword hareOperator as is
+syn keyword hareRepeat for
+syn keyword hareStorageClass const def export nullable static
+syn keyword hareStructure enum struct union
+syn keyword hareTypedef type
+
+" C ABI.
+syn keyword hareKeyword vastart vaarg vaend
+
 syn keyword hareBuiltin len offset free alloc assert append abort delete insert
-syn keyword hareBuiltin vastart vaarg vaend
-syn keyword hareOperator is as
 syn match hareType "\v<size>((\_s|//.*\n)*\()@!"
 syn match hareBuiltin "\v<size>((\_s|//.*\n)*\()@="
 syn match harePreProc "^use .*;"
@@ -53,9 +63,6 @@ syn keyword hareType f32 f64
 syn keyword hareType bool
 syn keyword hareType char str
 syn keyword hareType void
-syn keyword hareType struct union
-syn keyword hareType enum
-syn keyword hareType nullable
 syn keyword hareType rune
 syn keyword hareType valist
 syn keyword hareNull null
@@ -63,7 +70,6 @@ syn keyword hareBoolean true false
 
 hi def link hareBinary Number
 hi def link hareBoolean Boolean
-hi def link hareBranch Repeat
 hi def link hareBuiltin Function
 hi def link hareComment Comment
 hi def link hareConditional Conditional
@@ -76,11 +82,15 @@ hi def link hareOctal Number
 hi def link hareOperator Operator
 hi def link harePreProc PreProc
 hi def link hareQuestionMark Special
+hi def link hareRepeat Repeat
 hi def link hareEscape SpecialChar
 hi def link hareEscapeRaw hareEscape
+hi def link hareStorageClass StorageClass
 hi def link hareString String
+hi def link hareStructure Structure
 hi def link hareTodo Todo
 hi def link hareType Type
+hi def link hareTypedef Typedef
 
 hi def link hareSpaceError Error
 autocmd InsertEnter * hi link hareSpaceError NONE
