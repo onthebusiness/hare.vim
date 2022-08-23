@@ -36,19 +36,15 @@ syn match hareQuestionMark "?"
 syn region hareString start=+\z(["']\)+ end=+\z1+ skip=+\\\\\|\\\z1+ contains=hareEscape
 syn region hareString start=+`+ end=+`+ contains=hareEscapeRaw
 
-"adapted from c.vim
-"integer number, or floating point number without a dot and with "f".
-syn match	hareNumbers		display transparent "\v<\d" contains=hareNumber,hareOctal,hareBinary,hareFloat
-syn match	hareNumber		display contained "\v\d+([Ee][-+]?\d+)?(z|[iu](8|16|32|64)?)?"
-"hex number
-syn match	hareNumber		display contained "\v0x\x+(z|[iu](8|16|32|64)?)?"
-"octal number
-syn match	hareOctal		display contained "\v0o\o+(z|[iu](8|16|32|64)?)?"
-"binary number
-syn match	hareBinary		display contained '\v0b[01]+(z|[iu](8|16|32|64)?)?'
-syn match	hareFloat		display contained "\v\d+([Ee][-+]?\d+)?(f32|f64)"
-"floating point number, with dot, optional exponent
-syn match	hareFloat		display contained "\v\d+\.\d+([Ee][-+]?\d+)?(f32|f64)?"
+" Number literals.
+syn match hareNumber "\v(\.@1<!|\.\.)\zs<\d+([Ee][+-]?\d+)?(z|[iu](8|16|32|64)?)?>" display
+syn match hareNumber "\v(\.@1<!|\.\.)\zs<0b[01]+(z|[iu](8|16|32|64)?)?>" display
+syn match hareNumber "\v(\.@1<!|\.\.)\zs<0o\o+(z|[iu](8|16|32|64)?)?>" display
+syn match hareNumber "\v(\.@1<!|\.\.)\zs<0x\x+(z|[iu](8|16|32|64)?)?>" display
+
+" Floating-point number literals.
+syn match hareFloat "\v<\d+\.\d+([Ee][+-]?\d+)?(f32|f64)?>" display
+syn match hareFloat "\v<\d+([Ee][+-]?\d+)?(f32|f64)>" display
 
 syn match	hareSpaceError		display excludenl "\v\s+$"
 syn match	hareSpaceError		display "\v +\t"me=e-1
@@ -68,17 +64,15 @@ syn keyword hareType valist
 syn keyword hareNull null
 syn keyword hareBoolean true false
 
-hi def link hareBinary Number
 hi def link hareBoolean Boolean
 hi def link hareBuiltin Function
 hi def link hareComment Comment
 hi def link hareConditional Conditional
-hi def link hareFloat Number
+hi def link hareFloat Float
 hi def link hareKeyword Keyword
 hi def link hareLabel Label
 hi def link hareNull Constant
 hi def link hareNumber Number
-hi def link hareOctal Number
 hi def link hareOperator Operator
 hi def link harePreProc PreProc
 hi def link hareQuestionMark Special
