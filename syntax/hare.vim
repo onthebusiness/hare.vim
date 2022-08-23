@@ -1,12 +1,16 @@
+" PRELUDE {{{1
 " Vim syntax file
 " Language: Hare
 
 if exists("b:current_syntax")
   finish
 endif
+let b:current_syntax = "hare"
 
+" SYNTAX {{{1
 syn case match
 
+" KEYWORDS {{{2
 syn keyword hareConditional if else match switch
 syn keyword hareKeyword break continue return yield
 syn keyword hareKeyword defer
@@ -22,17 +26,29 @@ syn keyword hareTypedef type
 " C ABI.
 syn keyword hareKeyword vastart vaarg vaend
 
+" BUILTINS {{{2
 syn keyword hareBuiltin abort
 syn keyword hareBuiltin alloc free
 syn keyword hareBuiltin append delete insert
 syn keyword hareBuiltin assert
 syn keyword hareBuiltin len offset
 
-syn match harePreProc "^use .*;"
-syn match hareAttribute "@[a-z]*"
-syn match hareOperator "\.\.\." "\.\."
-syn match hareErrorAssertion "\v(^([^/]|//@!)*\)\_s*)@<=!\=@!"
-syn match hareQuestionMark "?"
+" TYPES {{{2
+syn keyword hareType bool
+syn keyword hareType char str
+syn keyword hareType f32 f64
+syn keyword hareType u8 u16 u32 u64 i8 i16 i32 i64
+syn keyword hareType uint int
+syn keyword hareType rune
+syn keyword hareType uintptr
+syn keyword hareType void
+
+" C ABI.
+syn keyword hareType valist
+
+" LITERALS {{{2
+syn keyword hareBoolean true false
+syn keyword hareNull null
 
 " Number literals.
 syn match hareNumber "\v(\.@1<!|\.\.)\zs<\d+([Ee][+-]?\d+)?(z|[iu](8|16|32|64)?)?>" display
@@ -53,28 +69,29 @@ syn region hareRune start="'" end="'\|$" skip="\\'" contains=hareEscape display 
 syn region hareString start=+"+ end=+"\|$+ skip=+\\"+ contains=hareEscape,hareFormat display extend
 syn region hareString start="`" end="`\|$" contains=hareFormat display
 
+" MISCELLANEOUS {{{2
+syn keyword hareTodo FIXME TODO XXX contained
+
+" Attributes.
+syn match hareAttribute "@[a-z]*"
+
+" Comments.
+syn region hareComment start="//" end="$" contains=hareTodo,@Spell
+
 " The size keyword can be either a builtin or a type.
 syn match hareBuiltin "\v<size>\ze(\_s*//.*\_$)*\_s*\(" contains=hareComment
 syn match hareType "\v<size>((\_s*//.*\_$)*\_s*\()@!" contains=hareComment
 
-syn match	hareSpaceError		display excludenl "\v\s+$"
-syn match	hareSpaceError		display "\v +\t"me=e-1
+" Trailing whitespace.
+syn match hareSpaceError "\v\s+$" display excludenl
+syn match hareSpaceError "\v\zs +\ze\t" display
 
-syn keyword hareTodo contained TODO FIXME XXX
-syn region hareComment start="//" end="$" contains=hareTodo,@Spell
+syn match harePreProc "^use .*;"
+syn match hareOperator "\.\.\." "\.\."
+syn match hareErrorAssertion "\v(^([^/]|//@!)*\)\_s*)@<=!\=@!"
+syn match hareQuestionMark "?"
 
-syn keyword hareType u8 u16 u32 u64 i8 i16 i32 i64
-syn keyword hareType uint int
-syn keyword hareType uintptr
-syn keyword hareType f32 f64
-syn keyword hareType bool
-syn keyword hareType char str
-syn keyword hareType void
-syn keyword hareType rune
-syn keyword hareType valist
-syn keyword hareNull null
-syn keyword hareBoolean true false
-
+" DEFAULT HIGHLIGHTING {{{1
 hi def link hareAttribute Keyword
 hi def link hareBoolean Boolean
 hi def link hareBuiltin Function
@@ -104,7 +121,5 @@ autocmd InsertEnter * hi link hareSpaceError NONE
 autocmd InsertLeave * hi link hareSpaceError Error
 
 hi def hareErrorAssertion ctermfg=red cterm=bold guifg=red gui=bold
-
-let b:current_syntax = "hare"
 
 " vim: tabstop=8 shiftwidth=2 expandtab
