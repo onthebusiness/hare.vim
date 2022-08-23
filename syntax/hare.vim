@@ -76,7 +76,8 @@ syn keyword hareTodo FIXME TODO XXX contained
 syn match hareAttribute "@[a-z]*"
 
 " Comments.
-syn region hareComment start="//" end="$" contains=hareTodo,@Spell
+syn region hareComment start="//" end="$" contains=hareCommentDoc,hareTodo,@Spell display keepend
+syn region hareCommentDoc start="\[\[" end="]]\|\ze\_s" contained display
 
 " The size keyword can be either a builtin or a type.
 syn match hareBuiltin "\v<size>\ze(\_s*//.*\_$)*\_s*\(" contains=hareComment
@@ -96,6 +97,7 @@ hi def link hareAttribute Keyword
 hi def link hareBoolean Boolean
 hi def link hareBuiltin Function
 hi def link hareComment Comment
+hi def link hareCommentDoc SpecialComment
 hi def link hareConditional Conditional
 hi def link hareEscape SpecialChar
 hi def link hareFloat Float
