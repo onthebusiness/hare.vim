@@ -90,7 +90,9 @@ syn match hareType "\v<size>((\_s*//.*\_$)*\_s*\()@!" contains=hareComment
 syn match hareSpaceError "\v\s+$" display excludenl
 syn match hareSpaceError "\v\zs +\ze\t" display
 
-syn match harePreProc "^use .*;"
+" Use statement.
+syn region hareUse start="\v^\s*\zsuse>" end=";" contains=hareComment display
+
 syn match hareErrorAssertion "\v(^([^/]|//@!)*\)\_s*)@<=!\=@!"
 syn match hareQuestionMark "?"
 
@@ -109,7 +111,6 @@ hi def link hareLabel Label
 hi def link hareNull Constant
 hi def link hareNumber Number
 hi def link hareOperator Operator
-hi def link harePreProc PreProc
 hi def link hareQuestionMark Special
 hi def link hareRepeat Repeat
 hi def link hareRune Character
@@ -119,6 +120,7 @@ hi def link hareStructure Structure
 hi def link hareTodo Todo
 hi def link hareType Type
 hi def link hareTypedef Typedef
+hi def link hareUse PreProc
 
 hi def link hareSpaceError Error
 autocmd InsertEnter * hi link hareSpaceError NONE
