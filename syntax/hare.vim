@@ -22,9 +22,12 @@ syn keyword hareTypedef type
 " C ABI.
 syn keyword hareKeyword vastart vaarg vaend
 
-syn keyword hareBuiltin len offset free alloc assert append abort delete insert
-syn match hareType "\v<size>((\_s|//.*\n)*\()@!"
-syn match hareBuiltin "\v<size>((\_s|//.*\n)*\()@="
+syn keyword hareBuiltin abort
+syn keyword hareBuiltin alloc free
+syn keyword hareBuiltin append delete insert
+syn keyword hareBuiltin assert
+syn keyword hareBuiltin len offset
+
 syn match harePreProc "^use .*;"
 syn match hareAttribute "@[a-z]*"
 syn match hareOperator "\.\.\." "\.\."
@@ -49,6 +52,10 @@ syn match hareFormat "\({{\|}}\)" contained display
 syn region hareRune start="'" end="'\|$" skip="\\'" contains=hareEscape display extend
 syn region hareString start=+"+ end=+"\|$+ skip=+\\"+ contains=hareEscape,hareFormat display extend
 syn region hareString start="`" end="`\|$" contains=hareFormat display
+
+" The size keyword can be either a builtin or a type.
+syn match hareBuiltin "\v<size>\ze(\_s*//.*\_$)*\_s*\(" contains=hareComment
+syn match hareType "\v<size>((\_s*//.*\_$)*\_s*\()@!" contains=hareComment
 
 syn match	hareSpaceError		display excludenl "\v\s+$"
 syn match	hareSpaceError		display "\v +\t"me=e-1
