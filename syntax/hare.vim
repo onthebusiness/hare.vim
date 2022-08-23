@@ -91,7 +91,6 @@ syn match hareSpaceError "\v\s+$" display excludenl
 syn match hareSpaceError "\v\zs +\ze\t" display
 
 syn match harePreProc "^use .*;"
-syn match hareOperator "\.\.\." "\.\."
 syn match hareErrorAssertion "\v(^([^/]|//@!)*\)\_s*)@<=!\=@!"
 syn match hareQuestionMark "?"
 
