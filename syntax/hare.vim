@@ -29,12 +29,7 @@ syn match harePreProc "^use .*;"
 syn match harePreProc "@[a-z]*"
 syn match hareOperator "\.\.\." "\.\."
 syn match hareErrorAssertion "\v(^([^/]|//@!)*\)\_s*)@<=!\=@!"
-syn match hareEscape "\\[\\\'\"0abfnrtv]" contained
-syn match hareEscapeRaw "\\[\\0abfnrtv]" contained
 syn match hareQuestionMark "?"
-
-syn region hareString start=+\z(["']\)+ end=+\z1+ skip=+\\\\\|\\\z1+ contains=hareEscape
-syn region hareString start=+`+ end=+`+ contains=hareEscapeRaw
 
 " Number literals.
 syn match hareNumber "\v(\.@1<!|\.\.)\zs<\d+([Ee][+-]?\d+)?(z|[iu](8|16|32|64)?)?>" display
@@ -45,6 +40,15 @@ syn match hareNumber "\v(\.@1<!|\.\.)\zs<0x\x+(z|[iu](8|16|32|64)?)?>" display
 " Floating-point number literals.
 syn match hareFloat "\v<\d+\.\d+([Ee][+-]?\d+)?(f32|f64)?>" display
 syn match hareFloat "\v<\d+([Ee][+-]?\d+)?(f32|f64)>" display
+
+" String and rune literals.
+syn match hareEscape "\\[\\'"0abfnrtv]" contained display
+syn match hareEscape "\v\\(x\x{2}|u\x{4}|U\x{8})" contained display
+syn match hareFormat "\v\{\d*(\%\d*|(:[ 0+-]?\d*(\.\d+)?[Xbox]?))?}" contained display
+syn match hareFormat "\({{\|}}\)" contained display
+syn region hareRune start="'" end="'\|$" skip="\\'" contains=hareEscape display extend
+syn region hareString start=+"+ end=+"\|$+ skip=+\\"+ contains=hareEscape,hareFormat display extend
+syn region hareString start="`" end="`\|$" contains=hareFormat display
 
 syn match	hareSpaceError		display excludenl "\v\s+$"
 syn match	hareSpaceError		display "\v +\t"me=e-1
@@ -68,7 +72,9 @@ hi def link hareBoolean Boolean
 hi def link hareBuiltin Function
 hi def link hareComment Comment
 hi def link hareConditional Conditional
+hi def link hareEscape SpecialChar
 hi def link hareFloat Float
+hi def link hareFormat SpecialChar
 hi def link hareKeyword Keyword
 hi def link hareLabel Label
 hi def link hareNull Constant
@@ -77,8 +83,7 @@ hi def link hareOperator Operator
 hi def link harePreProc PreProc
 hi def link hareQuestionMark Special
 hi def link hareRepeat Repeat
-hi def link hareEscape SpecialChar
-hi def link hareEscapeRaw hareEscape
+hi def link hareRune Character
 hi def link hareStorageClass StorageClass
 hi def link hareString String
 hi def link hareStructure Structure
