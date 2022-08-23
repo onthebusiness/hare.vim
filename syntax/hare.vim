@@ -75,6 +75,9 @@ syn keyword hareTodo FIXME TODO XXX contained
 " Attributes.
 syn match hareAttribute "@[a-z]*"
 
+" Blocks.
+syn region hareBlock start="{" end="}" fold transparent
+
 " Comments.
 syn region hareComment start="//" end="$" contains=hareCommentDoc,hareTodo,@Spell display keepend
 syn region hareCommentDoc start="\[\[" end="]]\|\ze\_s" contained display
