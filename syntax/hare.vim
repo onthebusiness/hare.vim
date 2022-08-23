@@ -26,7 +26,7 @@ syn keyword hareBuiltin len offset free alloc assert append abort delete insert
 syn match hareType "\v<size>((\_s|//.*\n)*\()@!"
 syn match hareBuiltin "\v<size>((\_s|//.*\n)*\()@="
 syn match harePreProc "^use .*;"
-syn match harePreProc "@[a-z]*"
+syn match hareAttribute "@[a-z]*"
 syn match hareOperator "\.\.\." "\.\."
 syn match hareErrorAssertion "\v(^([^/]|//@!)*\)\_s*)@<=!\=@!"
 syn match hareQuestionMark "?"
@@ -68,6 +68,7 @@ syn keyword hareType valist
 syn keyword hareNull null
 syn keyword hareBoolean true false
 
+hi def link hareAttribute Keyword
 hi def link hareBoolean Boolean
 hi def link hareBuiltin Function
 hi def link hareComment Comment
