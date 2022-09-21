@@ -1,5 +1,7 @@
 " Vim compiler file
 " Compiler: Hare Compiler
+" Maintainer: Amelia Clarke <me@rsaihe.dev>
+" Last Change: 2022-09-21
 
 if exists("g:current_compiler")
   finish

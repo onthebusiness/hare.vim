@@ -1,6 +1,8 @@
-" Hare filetype plugin
-" Maintainer: Drew DeVault <sir@cmpwn.com>
-" Last Updated: 2020-05-06
+" Vim filetype plugin
+" Language: Hare
+" Maintainer: Amelia Clarke <me@rsaihe.dev>
+" Previous Maintainer: Drew DeVault <sir@cmpwn.com>
+" Last Updated: 2022-09-21
 
 " Only do this when not done yet for this buffer
 if exists('b:did_ftplugin')
