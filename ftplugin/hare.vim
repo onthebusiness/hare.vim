@@ -30,4 +30,4 @@ compiler hare
 
 let b:undo_ftplugin = "setl cms< com< et< fo< sts< sua< sw< ts< tw<"
 
-" vim: tabstop=2 shiftwidth=2 expandtab
+" vim: et sw=2 sts=2 ts=8

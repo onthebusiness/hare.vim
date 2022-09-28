@@ -2,7 +2,7 @@
 " Vim syntax file
 " Language: Hare
 " Maintainer: Amelia Clarke <me@rsaihe.dev>
-" Last Change: 2022-09-21
+" Last Change: 2022-09-28
 
 if exists("b:current_syntax")
   finish
@@ -130,4 +130,4 @@ autocmd InsertLeave * hi link hareSpaceError Error
 
 hi def hareErrorAssertion ctermfg=red cterm=bold guifg=red gui=bold
 
-" vim: tabstop=8 shiftwidth=2 expandtab
+" vim: et sw=2 sts=2 ts=8

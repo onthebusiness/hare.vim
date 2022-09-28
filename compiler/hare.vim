@@ -1,7 +1,7 @@
 " Vim compiler file
 " Compiler: Hare Compiler
 " Maintainer: Amelia Clarke <me@rsaihe.dev>
-" Last Change: 2022-09-21
+" Last Change: 2022-09-28
 
 if exists("g:current_compiler")
   finish
@@ -28,4 +28,5 @@ CompilerSet errorformat=
 
 let &cpo = s:cpo_save
 unlet s:cpo_save
-" vim: tabstop=2 shiftwidth=2 expandtab
+
+" vim: et sw=2 sts=2 ts=8

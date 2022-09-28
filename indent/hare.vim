@@ -1,7 +1,7 @@
 " Vim indent file
 " Language: Hare
 " Maintainer: Amelia Clarke <me@rsaihe.dev>
-" Last Change: 2022-09-21
+" Last Change: 2022-09-28
 
 if exists("b:did_indent")
   finish
@@ -136,4 +136,4 @@ function! GetHareIndent()
   return l:indent
 endfunction
 
-" vim: tabstop=2 shiftwidth=2 expandtab
+" vim: et sw=2 sts=2 ts=8
