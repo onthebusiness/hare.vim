@@ -69,7 +69,7 @@ syn match hareFormat "\v\{\d*(\%\d*|(:[ 0+-]?\d*(\.\d+)?[Xbox]?))?}" contained d
 syn match hareFormat "\({{\|}}\)" contained display
 syn region hareRune start="'" end="'\|$" skip="\\'" contains=hareEscape display extend
 syn region hareString start=+"+ end=+"\|$+ skip=+\\"+ contains=hareEscape,hareFormat display extend
-syn region hareString start="`" end="`\|$" contains=hareFormat display
+syn region hareString start="`" end="`" contains=hareFormat display
 
 " MISCELLANEOUS {{{2
 syn keyword hareTodo FIXME TODO XXX contained
