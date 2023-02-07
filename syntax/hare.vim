@@ -33,7 +33,7 @@ syn keyword hareBuiltin abort
 syn keyword hareBuiltin alloc free
 syn keyword hareBuiltin append delete insert
 syn keyword hareBuiltin assert
-syn keyword hareBuiltin len offset
+syn keyword hareBuiltin len offset align
 
 " TYPES {{{2
 syn keyword hareType bool
