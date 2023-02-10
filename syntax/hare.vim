@@ -14,14 +14,14 @@ syn case match
 
 " KEYWORDS {{{2
 syn keyword hareConditional if else match switch
-syn keyword hareKeyword break continue return yield
-syn keyword hareKeyword defer
-syn keyword hareKeyword fn
-syn keyword hareKeyword let
+syn keyword hareKeyword export static
+syn keyword hareKeyword let const def
+syn keyword hareKeyword fn return yield
+syn keyword hareKeyword break continue defer
 syn keyword hareLabel case
 syn keyword hareOperator as is
 syn keyword hareRepeat for
-syn keyword hareStorageClass const def export nullable static
+syn keyword hareStorageClass nullable
 syn keyword hareStructure enum struct union
 syn keyword hareTypedef type
 
