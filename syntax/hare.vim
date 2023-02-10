@@ -99,7 +99,7 @@ syn match hareErrorAssertion "\v(^([^/]|//@!)*\)\_s*)@<=!\=@!"
 syn match hareQuestionMark "?"
 
 " DEFAULT HIGHLIGHTING {{{1
-hi def link hareAttribute Keyword
+hi def link hareAttribute PreProc
 hi def link hareBoolean Boolean
 hi def link hareBuiltin Function
 hi def link hareComment Comment
