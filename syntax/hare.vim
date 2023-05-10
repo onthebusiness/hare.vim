@@ -37,7 +37,7 @@ syn keyword hareBuiltin len offset align
 
 " TYPES {{{2
 syn keyword hareType bool
-syn keyword hareType char str
+syn keyword hareType str
 syn keyword hareType f32 f64
 syn keyword hareType u8 u16 u32 u64 i8 i16 i32 i64
 syn keyword hareType uint int
