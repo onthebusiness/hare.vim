@@ -22,8 +22,8 @@ else
 endif
 
 CompilerSet errorformat=
-  \Error\ %f:%l:%c:\ %m,
-  \Syntax\ error:\ %.%#\ at\ %f:%l:%c\\,\ %m,
+  \%f:%l:%c:\ syntax\ error:\ %m,
+  \%f:%l:%c:\ error:\ %m,
   \%-G%.%#
 
 let &cpo = s:cpo_save
