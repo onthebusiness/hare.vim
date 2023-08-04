@@ -2,7 +2,7 @@
 " Vim syntax file
 " Language: Hare
 " Maintainer: Amelia Clarke <me@rsaihe.dev>
-" Last Change: 2022-09-28
+" Last Change: 2023-08-04
 
 if exists("b:current_syntax")
   finish
@@ -33,7 +33,7 @@ syn keyword hareBuiltin abort
 syn keyword hareBuiltin alloc free
 syn keyword hareBuiltin append delete insert
 syn keyword hareBuiltin assert
-syn keyword hareBuiltin len offset align
+syn keyword hareBuiltin len offset align cap
 
 " TYPES {{{2
 syn keyword hareType bool
