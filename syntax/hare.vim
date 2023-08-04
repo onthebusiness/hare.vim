@@ -44,6 +44,7 @@ syn keyword hareType uint int
 syn keyword hareType rune
 syn keyword hareType uintptr
 syn keyword hareType void
+syn keyword hareType opaque
 
 " C ABI.
 syn keyword hareType valist
