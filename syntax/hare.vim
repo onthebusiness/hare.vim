@@ -2,7 +2,7 @@
 " Vim syntax file
 " Language: Hare
 " Maintainer: Amelia Clarke <me@rsaihe.dev>
-" Last Change: 2022-09-28
+" Last Change: 2023-09-07
 
 if exists("b:current_syntax")
   finish
@@ -55,14 +55,14 @@ syn keyword hareBoolean true false
 syn keyword hareNull null
 
 " Number literals.
-syn match hareNumber "\v(\.@1<!|\.\.)\zs<\d+([Ee][+-]?\d+)?(z|[iu](8|16|32|64)?)?>" display
+syn match hareNumber "\v(\.@1<!|\.\.)\zs<(0|[1-9]\d*)([Ee][+-]?\d+)?(z|[iu](8|16|32|64)?)?>" display
 syn match hareNumber "\v(\.@1<!|\.\.)\zs<0b[01]+(z|[iu](8|16|32|64)?)?>" display
 syn match hareNumber "\v(\.@1<!|\.\.)\zs<0o\o+(z|[iu](8|16|32|64)?)?>" display
 syn match hareNumber "\v(\.@1<!|\.\.)\zs<0x\x+(z|[iu](8|16|32|64)?)?>" display
 
 " Floating-point number literals.
-syn match hareFloat "\v<\d+\.\d+([Ee][+-]?\d+)?(f32|f64)?>" display
-syn match hareFloat "\v<\d+([Ee][+-]?\d+)?(f32|f64)>" display
+syn match hareFloat "\v<(0|[1-9]\d*)\.\d+([Ee][+-]?\d+)?(f32|f64)?>" display
+syn match hareFloat "\v<(0|[1-9]\d*)([Ee][+-]?\d+)?(f32|f64)>" display
 
 " String and rune literals.
 syn match hareEscape "\\[\\'"0abfnrtv]" contained display
