@@ -63,6 +63,8 @@ syn match hareNumber "\v(\.@1<!|\.\.)\zs<0x\x+(z|[iu](8|16|32|64)?)?>" display
 " Floating-point number literals.
 syn match hareFloat "\v<(0|[1-9]\d*)\.\d+([Ee][+-]?\d+)?(f32|f64)?>" display
 syn match hareFloat "\v<(0|[1-9]\d*)([Ee][+-]?\d+)?(f32|f64)>" display
+syn match hareFloat "\v<0x\x+\.\x+([Pp][+-]?\d+(f32|f64)?)?>" display
+syn match hareFloat "\v<0x\x+[Pp][+-]?\d+(f32|f64)?>" display
 
 " String and rune literals.
 syn match hareEscape "\\[\\'"0abfnrtv]" contained display
