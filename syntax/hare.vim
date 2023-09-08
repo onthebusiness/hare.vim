@@ -79,7 +79,8 @@ syn region hareString start="`" end="`" contains=hareFormat display
 syn keyword hareTodo FIXME TODO XXX contained
 
 " Attributes.
-syn match hareAttribute "@[a-z]*"
+syn match hareAttributeError "\v\@\w+"
+syn match hareAttribute "\v\@(fini|init|offset|packed|symbol|test|threadlocal)>"
 
 " Blocks.
 syn region hareBlock start="{" end="}" fold transparent
@@ -128,6 +129,7 @@ hi def link hareType Type
 hi def link hareTypedef Typedef
 hi def link hareUse PreProc
 
+hi def link hareAttributeError Error
 hi def link hareSpaceError Error
 autocmd InsertEnter * hi link hareSpaceError NONE
 autocmd InsertLeave * hi link hareSpaceError Error
