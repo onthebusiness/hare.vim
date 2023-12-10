@@ -69,8 +69,8 @@ syn match hareFloat "\v<0x\x+[Pp][+-]?\d+(f32|f64)?>" display
 " String and rune literals.
 syn match hareEscape "\\[\\'"0abfnrtv]" contained display
 syn match hareEscape "\v\\(x\x{2}|u\x{4}|U\x{8})" contained display
-syn match hareFormat "\v\{[^%:}]*(\%\d*|(:([-=+Xbox ]|_.|\.\d+|\d+)*))?}" contained display
-syn match hareFormat "\({{\|}}\)" contained display
+syn match hareFormat "\v\{\d*(\%\d*|:(\.?\d+|[-f+= geXbox]|_.|F[s.UES2])+)?\}" contained display
+syn match hareFormat "{{\|}}" contained display
 syn region hareRune start="'" end="'\|$" skip="\\'" contains=hareEscape display extend
 syn region hareString start=+"+ end=+"\|$+ skip=+\\"+ contains=hareEscape,hareFormat display extend
 syn region hareString start="`" end="`" contains=hareFormat display
