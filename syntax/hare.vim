@@ -106,9 +106,9 @@ syn match hareCommentRef '\v\[\[\h\w*(::\h\w*)*(::)?]]' contained display
 syn match hareErrorAssertion '\v((\h\w*(\.\d+)*|[!?]|\))(\_s*|//.*\_$)*)@<=!\=@!' display
 syn match hareErrorPropagation '?' display
 
-" Trailing whitespace.
-syn match hareSpaceError "\v\s+$" display excludenl
-syn match hareSpaceError "\v\zs +\ze\t" display
+" Incorrect whitespace
+syn match hareSpaceError '\v\s+$' display
+syn match hareSpaceError '\v\zs +\ze\t' display
 
 " Use statement.
 syn region hareUse start="\v^\s*\zsuse>" end=";" contains=hareComment display
@@ -145,8 +145,12 @@ hi def hareErrorPropagation ctermfg=red cterm=bold guifg=red gui=bold
 " Highlight invalid attributes.
 hi def link hareAttributeError Error
 
+" Don't highlight incorrect spacing when in insert mode.
 hi def link hareSpaceError Error
-autocmd InsertEnter * hi link hareSpaceError NONE
-autocmd InsertLeave * hi link hareSpaceError Error
+augroup hareSpaceError
+  autocmd!
+  autocmd InsertEnter * hi link hareSpaceError NONE
+  autocmd InsertLeave * hi link hareSpaceError Error
+augroup END
 
 " vim: et sw=2 sts=2 ts=8
