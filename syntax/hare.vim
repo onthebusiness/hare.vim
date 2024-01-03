@@ -5,10 +5,10 @@
 " Last Change: 2024-01-02
 " Upstream:    https://git.sr.ht/~sircmpwn/hare.vim
 
-if exists("b:current_syntax")
+if exists('b:current_syntax')
   finish
 endif
-let b:current_syntax = "hare"
+let b:current_syntax = 'hare'
 
 " SYNTAX {{{1
 syn case match
@@ -93,8 +93,8 @@ syn region hareString start='`' end='`' contains=hareFormat display
 " MISCELLANEOUS {{{2
 syn keyword hareTodo FIXME TODO XXX contained
 
-" Blocks.
-syn region hareBlock start="{" end="}" fold transparent
+" Blocks
+syn region hareBlock start='{' end='}' fold transparent
 
 " Comments
 syn region hareComment start='//' end='$' contains=hareCommentDoc,hareTodo,@Spell display
@@ -110,8 +110,8 @@ syn match hareErrorPropagation '?' display
 syn match hareSpaceError '\v\s+$' display
 syn match hareSpaceError '\v\zs +\ze\t' display
 
-" Use statement.
-syn region hareUse start="\v^\s*\zsuse>" end=";" contains=hareComment display
+" Use statement
+syn region hareUse start='\v^\s*\zsuse>' end=';' contains=hareComment display
 
 " DEFAULT HIGHLIGHTING {{{1
 hi def link hareAttribute PreProc
