@@ -1,8 +1,8 @@
 " Vim filetype plugin
-" Language: Hare
-" Maintainer: Amelia Clarke <me@rsaihe.dev>
-" Previous Maintainer: Drew DeVault <sir@cmpwn.com>
-" Last Updated: 2022-09-28
+" Language:     Hare
+" Maintainer:   Amelia Clarke <selene@perilune.dev>
+" Last Updated: 2024-01-01
+" Upstream:     https://git.sr.ht/~sircmpwn/hare.vim
 
 if exists('b:did_ftplugin')
   finish

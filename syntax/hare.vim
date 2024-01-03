@@ -1,8 +1,9 @@
 " PRELUDE {{{1
 " Vim syntax file
-" Language: Hare
-" Maintainer: Amelia Clarke <me@rsaihe.dev>
-" Last Change: 2023-09-07
+" Language:    Hare
+" Maintainer:  Amelia Clarke <selene@perilune.dev>
+" Last Change: 2024-01-01
+" Upstream:    https://git.sr.ht/~sircmpwn/hare.vim
 
 if exists("b:current_syntax")
   finish

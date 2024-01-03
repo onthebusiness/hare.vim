@@ -1,7 +1,8 @@
 " Vim compiler file
-" Compiler: Hare Compiler
-" Maintainer: Amelia Clarke <me@rsaihe.dev>
-" Last Change: 2022-09-28
+" Compiler:    Hare Compiler
+" Maintainer:  Amelia Clarke <selene@perilune.dev>
+" Last Change: 2024-01-01
+" Upstream:    https://git.sr.ht/~sircmpwn/hare.vim
 
 if exists("g:current_compiler")
   finish

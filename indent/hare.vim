@@ -1,7 +1,8 @@
 " Vim indent file
-" Language: Hare
-" Maintainer: Amelia Clarke <me@rsaihe.dev>
-" Last Change: 2022-09-28
+" Language:    Hare
+" Maintainer:  Amelia Clarke <selene@perilune.dev>
+" Last Change: 2024-01-01
+" Upstream:    https://git.sr.ht/~sircmpwn/hare.vim
 
 if exists("b:did_indent")
   finish
