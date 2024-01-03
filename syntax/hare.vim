@@ -66,17 +66,16 @@ syn match hareBuiltin '\v<size>\ze(\_s*|//.*\_$)*\(' display
 syn keyword hareBoolean true false
 syn keyword hareNull null
 
-" Number literals.
-syn match hareNumber "\v(\.@1<!|\.\.)\zs<(0|[1-9]\d*)([Ee][+-]?\d+)?(z|[iu](8|16|32|64)?)?>" display
-syn match hareNumber "\v(\.@1<!|\.\.)\zs<0b[01]+(z|[iu](8|16|32|64)?)?>" display
-syn match hareNumber "\v(\.@1<!|\.\.)\zs<0o\o+(z|[iu](8|16|32|64)?)?>" display
-syn match hareNumber "\v(\.@1<!|\.\.)\zs<0x\x+(z|[iu](8|16|32|64)?)?>" display
+" Floating-point number literals
+syn match hareFloat '\v<(0|[1-9]\d*)\.\d+([eE][+-]?\d+)?(f32|f64)?>' display
+syn match hareFloat '\v<(0|[1-9]\d*)([eE][+-]?\d+)?(f32|f64)>' display
+syn match hareFloat '\v<0x\x+(\.\x+)?[pP][+-]?\d+(f32|f64)?>' display
 
-" Floating-point number literals.
-syn match hareFloat "\v<(0|[1-9]\d*)\.\d+([Ee][+-]?\d+)?(f32|f64)?>" display
-syn match hareFloat "\v<(0|[1-9]\d*)([Ee][+-]?\d+)?(f32|f64)>" display
-syn match hareFloat "\v<0x\x+\.\x+([Pp][+-]?\d+(f32|f64)?)?>" display
-syn match hareFloat "\v<0x\x+[Pp][+-]?\d+(f32|f64)?>" display
+" Integer literals
+syn match hareInteger '\v(\.@1<!|\.\.)\zs<(0|[1-9]\d*)([eE][+-]?\d+)?([iu](8|16|32|64)?|z)?>' display
+syn match hareInteger '\v(\.@1<!|\.\.)\zs<0b[01]+([iu](8|16|32|64)?|z)?>' display
+syn match hareInteger '\v(\.@1<!|\.\.)\zs<0o\o+([iu](8|16|32|64)?|z)?>' display
+syn match hareInteger '\v(\.@1<!|\.\.)\zs<0x\x+([iu](8|16|32|64)?|z)?>' display
 
 " String and rune literals.
 syn match hareEscape "\\[\\'"0abfnrtv]" contained display
@@ -118,10 +117,10 @@ hi def link hareConditional Conditional
 hi def link hareEscape SpecialChar
 hi def link hareFloat Float
 hi def link hareFormat SpecialChar
+hi def link hareInteger Number
 hi def link hareKeyword Keyword
 hi def link hareLabel Label
 hi def link hareNull Constant
-hi def link hareNumber Number
 hi def link hareQuestionMark Special
 hi def link hareRepeat Repeat
 hi def link hareRune Character
