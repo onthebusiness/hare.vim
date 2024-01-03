@@ -12,6 +12,7 @@ let b:current_syntax = "hare"
 
 " SYNTAX {{{1
 syn case match
+syn iskeyword @,48-57,@-@
 
 " KEYWORDS {{{2
 syn keyword hareCast as is
@@ -24,6 +25,13 @@ syn keyword hareRepeat for
 syn keyword hareStorageClass export static
 syn keyword hareStructure enum struct union
 syn keyword hareTypedef type
+
+" Attributes
+syn keyword hareAttribute @init @fini @test
+syn keyword hareAttribute @offset @packed
+syn keyword hareAttribute @symbol
+syn keyword hareAttribute @threadlocal
+syn match hareAttributeError '@\w\+'
 
 " BUILTINS {{{2
 syn keyword hareBuiltin abort assert
@@ -76,10 +84,6 @@ syn region hareString start="`" end="`" contains=hareFormat display
 " MISCELLANEOUS {{{2
 syn keyword hareTodo FIXME TODO XXX contained
 
-" Attributes.
-syn match hareAttributeError "\v\@\w+"
-syn match hareAttribute "\v\@(fini|init|offset|packed|symbol|test|threadlocal)>"
-
 " Blocks.
 syn region hareBlock start="{" end="}" fold transparent
 
@@ -127,7 +131,9 @@ hi def link hareType Type
 hi def link hareTypedef Typedef
 hi def link hareUse Include
 
+" Highlight invalid attributes.
 hi def link hareAttributeError Error
+
 hi def link hareSpaceError Error
 autocmd InsertEnter * hi link hareSpaceError NONE
 autocmd InsertLeave * hi link hareSpaceError Error
