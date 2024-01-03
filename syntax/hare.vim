@@ -56,6 +56,12 @@ syn keyword hareType void
 " C ABI
 syn keyword hareType valist
 
+" `size` can either be a builtin or a type. Match it as a type by default,
+" unless the next non-comment token is an open paren, in which case prioritize
+" matching it as a builtin.
+syn match hareType '\v<size>' display
+syn match hareBuiltin '\v<size>\ze(\_s*|//.*\_$)*\(' display
+
 " LITERALS {{{2
 syn keyword hareBoolean true false
 syn keyword hareNull null
@@ -90,10 +96,6 @@ syn region hareBlock start="{" end="}" fold transparent
 " Comments.
 syn region hareComment start="//" end="$" contains=hareCommentDoc,hareTodo,@Spell display keepend
 syn region hareCommentDoc start="\[\[" end="]]\|\ze\_s" contained display
-
-" The size keyword can be either a builtin or a type.
-syn match hareBuiltin "\v<size>\ze(\_s*//.*\_$)*\_s*\(" contains=hareComment
-syn match hareType "\v<size>((\_s*//.*\_$)*\_s*\()@!" contains=hareComment
 
 " Trailing whitespace.
 syn match hareSpaceError "\v\s+$" display excludenl
