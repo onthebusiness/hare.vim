@@ -2,7 +2,7 @@
 " Vim syntax file
 " Language:    Hare
 " Maintainer:  Amelia Clarke <selene@perilune.dev>
-" Last Change: 2024-01-01
+" Last Change: 2024-01-02
 " Upstream:    https://git.sr.ht/~sircmpwn/hare.vim
 
 if exists("b:current_syntax")
@@ -14,41 +14,38 @@ let b:current_syntax = "hare"
 syn case match
 
 " KEYWORDS {{{2
+syn keyword hareCast as is
 syn keyword hareConditional if else match switch
-syn keyword hareKeyword export static
-syn keyword hareKeyword let const def
-syn keyword hareKeyword fn return yield
-syn keyword hareKeyword break continue defer
+syn keyword hareKeyword break continue defer return yield
+syn keyword hareKeyword const def let
+syn keyword hareKeyword fn
 syn keyword hareLabel case
-syn keyword hareOperator as is
 syn keyword hareRepeat for
-syn keyword hareStorageClass nullable
+syn keyword hareStorageClass export static
 syn keyword hareStructure enum struct union
 syn keyword hareTypedef type
 
-" C ABI.
-syn keyword hareKeyword vastart vaarg vaend
-
 " BUILTINS {{{2
-syn keyword hareBuiltin abort
+syn keyword hareBuiltin abort assert
+syn keyword hareBuiltin align len offset
 syn keyword hareBuiltin alloc free
-syn keyword hareBuiltin append delete insert
-syn keyword hareBuiltin assert
-syn keyword hareBuiltin len offset align
+syn keyword hareBuiltin append insert delete
+
+" C ABI
+syn keyword hareBuiltin vastart vaarg vaend
 
 " TYPES {{{2
 syn keyword hareType bool
-syn keyword hareType str
 syn keyword hareType f32 f64
-syn keyword hareType u8 u16 u32 u64 i8 i16 i32 i64
-syn keyword hareType uint int
-syn keyword hareType rune
-syn keyword hareType uintptr
-syn keyword hareType void
-syn keyword hareType opaque
+syn keyword hareType i8 i16 i32 i64 u8 u16 u32 u64
+syn keyword hareType int uint uintptr
 syn keyword hareType never
+syn keyword hareType nullable
+syn keyword hareType opaque
+syn keyword hareType rune str
+syn keyword hareType void
 
-" C ABI.
+" C ABI
 syn keyword hareType valist
 
 " LITERALS {{{2
@@ -108,6 +105,7 @@ syn match hareQuestionMark "?"
 hi def link hareAttribute PreProc
 hi def link hareBoolean Boolean
 hi def link hareBuiltin Function
+hi def link hareCast Operator
 hi def link hareComment Comment
 hi def link hareCommentDoc SpecialComment
 hi def link hareConditional Conditional
@@ -118,7 +116,6 @@ hi def link hareKeyword Keyword
 hi def link hareLabel Label
 hi def link hareNull Constant
 hi def link hareNumber Number
-hi def link hareOperator Operator
 hi def link hareQuestionMark Special
 hi def link hareRepeat Repeat
 hi def link hareRune Character
@@ -128,7 +125,7 @@ hi def link hareStructure Structure
 hi def link hareTodo Todo
 hi def link hareType Type
 hi def link hareTypedef Typedef
-hi def link hareUse PreProc
+hi def link hareUse Include
 
 hi def link hareAttributeError Error
 hi def link hareSpaceError Error
