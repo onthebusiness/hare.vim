@@ -96,9 +96,9 @@ syn keyword hareTodo FIXME TODO XXX contained
 " Blocks.
 syn region hareBlock start="{" end="}" fold transparent
 
-" Comments.
-syn region hareComment start="//" end="$" contains=hareCommentDoc,hareTodo,@Spell display keepend
-syn region hareCommentDoc start="\[\[" end="]]\|\ze\_s" contained display
+" Comments
+syn region hareComment start='//' end='$' contains=hareCommentDoc,hareTodo,@Spell display
+syn match hareCommentRef '\v\[\[\h\w*(::\h\w*)*(::)?]]' contained display
 
 " Match `!` as an error assertion operator only if the previous non-comment
 " token is a closing paren, `!` or `?`, or a valid identifier followed by an
@@ -119,7 +119,7 @@ hi def link hareBoolean Boolean
 hi def link hareBuiltin Function
 hi def link hareCast Operator
 hi def link hareComment Comment
-hi def link hareCommentDoc SpecialComment
+hi def link hareCommentRef SpecialComment
 hi def link hareConditional Conditional
 hi def link hareEscape SpecialChar
 hi def link hareFloat Float
