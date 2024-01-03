@@ -77,14 +77,18 @@ syn match hareInteger '\v(\.@1<!|\.\.)\zs<0b[01]+([iu](8|16|32|64)?|z)?>' displa
 syn match hareInteger '\v(\.@1<!|\.\.)\zs<0o\o+([iu](8|16|32|64)?|z)?>' display
 syn match hareInteger '\v(\.@1<!|\.\.)\zs<0x\x+([iu](8|16|32|64)?|z)?>' display
 
-" String and rune literals.
-syn match hareEscape "\\[\\'"0abfnrtv]" contained display
-syn match hareEscape "\v\\(x\x{2}|u\x{4}|U\x{8})" contained display
-syn match hareFormat "\v\{\d*(\%\d*|:(\.?\d+|[-f+= geXbox]|_.|F[s.UES2])+)?\}" contained display
-syn match hareFormat "{{\|}}" contained display
-syn region hareRune start="'" end="'\|$" skip="\\'" contains=hareEscape display extend
-syn region hareString start=+"+ end=+"\|$+ skip=+\\"+ contains=hareEscape,hareFormat display extend
-syn region hareString start="`" end="`" contains=hareFormat display
+" Escape sequences
+syn match hareEscape '\\[\\'"0abfnrtv]' contained display
+syn match hareEscape '\v\\(x\x{2}|u\x{4}|U\x{8})' contained display
+
+" Format sequences
+syn match hareFormat '\v\{\d*(\%\d*|:([- +=befgoxX]|F[.2sESU]|\.?\d+|_(.|\\([\\'"0abfnrtv]|x\x{2}|u\x{4}|\x{8})))*)?}' contained contains=hareEscape display
+syn match hareFormat '{{\|}}' contained display
+
+" Rune and string literals
+syn region hareRune start="'" end="'\|$" skip="\\'" contains=hareEscape display
+syn region hareString start='"' end='"\|$' skip='\\"' contains=hareEscape,hareFormat display
+syn region hareString start='`' end='`' contains=hareFormat display
 
 " MISCELLANEOUS {{{2
 syn keyword hareTodo FIXME TODO XXX contained
