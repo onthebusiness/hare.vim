@@ -100,15 +100,18 @@ syn region hareBlock start="{" end="}" fold transparent
 syn region hareComment start="//" end="$" contains=hareCommentDoc,hareTodo,@Spell display keepend
 syn region hareCommentDoc start="\[\[" end="]]\|\ze\_s" contained display
 
+" Match `!` as an error assertion operator only if the previous non-comment
+" token is a closing paren, `!` or `?`, or a valid identifier followed by an
+" optional tuple field access. Do not include `!=` in the matches.
+syn match hareErrorAssertion '\v((\h\w*(\.\d+)*|[!?]|\))(\_s*|//.*\_$)*)@<=!\=@!' display
+syn match hareErrorPropagation '?' display
+
 " Trailing whitespace.
 syn match hareSpaceError "\v\s+$" display excludenl
 syn match hareSpaceError "\v\zs +\ze\t" display
 
 " Use statement.
 syn region hareUse start="\v^\s*\zsuse>" end=";" contains=hareComment display
-
-syn match hareErrorAssertion "\v(^([^/]|//@!)*\)\_s*)@<=!\=@!"
-syn match hareQuestionMark "?"
 
 " DEFAULT HIGHLIGHTING {{{1
 hi def link hareAttribute PreProc
@@ -125,7 +128,6 @@ hi def link hareInteger Number
 hi def link hareKeyword Keyword
 hi def link hareLabel Label
 hi def link hareNull Constant
-hi def link hareQuestionMark Special
 hi def link hareRepeat Repeat
 hi def link hareRune Character
 hi def link hareStorageClass StorageClass
@@ -136,13 +138,15 @@ hi def link hareType Type
 hi def link hareTypedef Typedef
 hi def link hareUse Include
 
+" Default highlighting for error propagation operators
+hi def hareErrorAssertion ctermfg=red cterm=bold guifg=red gui=bold
+hi def hareErrorPropagation ctermfg=red cterm=bold guifg=red gui=bold
+
 " Highlight invalid attributes.
 hi def link hareAttributeError Error
 
 hi def link hareSpaceError Error
 autocmd InsertEnter * hi link hareSpaceError NONE
 autocmd InsertLeave * hi link hareSpaceError Error
-
-hi def hareErrorAssertion ctermfg=red cterm=bold guifg=red gui=bold
 
 " vim: et sw=2 sts=2 ts=8
