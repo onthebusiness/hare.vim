@@ -9,25 +9,32 @@ if exists('b:did_ftplugin')
 endif
 let b:did_ftplugin = 1
 
-" Formatting settings.
-setlocal formatoptions-=t formatoptions+=croql/
+let s:cpo_save = &cpo
+set cpo&vim
 
-" Miscellaneous.
+compiler hare
+
+" Formatting
+setlocal formatoptions+=croql/ formatoptions-=t
+
+" Miscellaneous settings
 setlocal comments=://
 setlocal commentstring=//\ %s
 setlocal suffixesadd=.ha
 
-" Hare recommended style.
-if get(g:, "hare_recommended_style", 1)
+let b:undo_ftplugin = 'setl cms< com< fo< sua<'
+
+" Follow the Hare style guide by default.
+if get(g:, 'hare_recommended_style', 1)
   setlocal noexpandtab
   setlocal shiftwidth=8
   setlocal softtabstop=0
   setlocal tabstop=8
   setlocal textwidth=80
+  let b:undo_ftplugin .= ' et< sts< sw< ts< tw<'
 endif
 
-compiler hare
-
-let b:undo_ftplugin = "setl cms< com< et< fo< sts< sua< sw< ts< tw<"
+let &cpo = s:cpo_save
+unlet s:cpo_save
 
 " vim: et sw=2 sts=2 ts=8
