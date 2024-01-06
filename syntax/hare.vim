@@ -12,7 +12,6 @@ let b:current_syntax = 'hare'
 
 " SYNTAX {{{1
 syn case match
-syn iskeyword @,48-57,@-@
 
 " KEYWORDS {{{2
 syn keyword hareCast as is

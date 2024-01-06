@@ -20,9 +20,10 @@ setlocal formatoptions+=croql/ formatoptions-=t
 " Miscellaneous settings
 setlocal comments=://
 setlocal commentstring=//\ %s
+setlocal iskeyword+=@-@
 setlocal suffixesadd=.ha
 
-let b:undo_ftplugin = 'setl cms< com< fo< sua<'
+let b:undo_ftplugin = 'setl cms< com< fo< isk< sua<'
 
 " Follow the Hare style guide by default.
 if get(g:, 'hare_recommended_style', 1)
