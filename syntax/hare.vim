@@ -145,12 +145,4 @@ hi def hareErrorPropagation ctermfg=red cterm=bold guifg=red gui=bold
 " Highlight invalid attributes.
 hi def link hareAttributeError Error
 
-" Don't highlight incorrect spacing when in insert mode.
-hi def link hareSpaceError Error
-augroup hareSpaceError
-  autocmd!
-  autocmd InsertEnter * hi link hareSpaceError NONE
-  autocmd InsertLeave * hi link hareSpaceError Error
-augroup END
-
 " vim: et sw=2 sts=2 ts=8

@@ -34,6 +34,16 @@ if get(g:, 'hare_recommended_style', 1)
   let b:undo_ftplugin .= ' et< sts< sw< ts< tw<'
 endif
 
+augroup hare.vim
+  autocmd!
+
+  " Highlight incorrect spacing by default.
+  if get(g:, 'hare_space_error', 1)
+    autocmd InsertEnter * hi link hareSpaceError NONE
+    autocmd InsertLeave * hi link hareSpaceError Error
+  endif
+augroup END
+
 let &cpo = s:cpo_save
 unlet s:cpo_save
 
